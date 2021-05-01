@@ -63,8 +63,8 @@ const ProfileSchema = new mongoose.Schema({
                 type: String,
                 required: true
             },
-            fieldOfStudy: {
-                type: Date,
+            fieldofstudy: {
+                type: String,
                 required: true
             },
             from: {
@@ -106,4 +106,4 @@ const ProfileSchema = new mongoose.Schema({
     }
 })
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema)
+module.exports = mongoose.model('profile', ProfileSchema)
