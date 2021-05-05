@@ -13,6 +13,7 @@ const {check, validateResult, validationResult} = require('express-validator')
 //@access  Private
 router.get('/me', auth, async (req, res) => {
     try{
+        
 
         const profile = await Profile.findOne({ user: req.user.id })
         .populate('user', ['name, avatar'])
@@ -20,6 +21,8 @@ router.get('/me', auth, async (req, res) => {
         if(!profile) {
             return res.status(400).json({ msg: 'There is no profile for this user'})
         }
+        res.json(profile)
+
     } catch(err) {
         console.error(err.message)
         res.status(500).send('Server error')
@@ -34,6 +37,7 @@ router.post('/', [auth, [
     check('status', 'Status is required').not().isEmpty(),
     check('skills', 'Skills is required').not().isEmpty()
 ]] , async (req, res) => {
+    
     const errors = validationResult(req)
     if(!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()})
@@ -75,7 +79,7 @@ router.post('/', [auth, [
     if(youtube) profileFields.social.youtube = youtube
     if(twitter) profileFields.social.twitter = twitter
     if(facebook) profileFields.social.facebook = facebook
-    if(linkedin) profileField.social.linkedin = linkedin
+    if(linkedin) profileFields.social.linkedin = linkedin
     if(instagram) profileFields.social.instagram = instagram
 
     
