@@ -7,18 +7,18 @@ import { Link, withRouter } from 'react-router-dom'
 
 const CreateProfile = ({ createProfile, history }) => {
     const [formData, setFormData] = useState({
-        company: ' ',
-        website: ' ',
-        location: ' ',
-        status: ' ',
-        skills: ' ',
-        githubusername: ' ',
-        bio: ' ',
-        twitter: ' ',
-        facebook: ' ',
-        linkedin: ' ',
-        youtube: ' ',
-        instagram: ' '
+        company: '',
+        website: '',
+        location: '',
+        status: '',
+        skills: '',
+        githubusername: '',
+        bio: '',
+        twitter: '',
+        facebook: '',
+        linkedin: '',
+        youtube: '',
+        instagram: ''
     })
 
     const [displaySocialInputs, toggleSocialInputs] = useState(false)

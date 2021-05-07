@@ -7,18 +7,18 @@ import { Link, withRouter } from 'react-router-dom'
 
 const EditProfile = ({ profile: {profile, loading}, createProfile, getCurrentProfile, history }) => {
     const [formData, setFormData] = useState({
-        company: ' ',
-        website: ' ',
-        location: ' ',
-        status: ' ',
-        skills: ' ',
-        githubusername: ' ',
-        bio: ' ',
-        twitter: ' ',
-        facebook: ' ',
-        linkedin: ' ',
-        youtube: ' ',
-        instagram: ' '
+        company: '',
+        website: '',
+        location: '',
+        status: '',
+        skills: '',
+        githubusername: '',
+        bio: '',
+        twitter: '',
+        facebook: '',
+        linkedin: '',
+        youtube: '',
+        instagram: ''
     })
 
     const [displaySocialInputs, toggleSocialInputs] = useState(false)
@@ -58,7 +58,10 @@ const EditProfile = ({ profile: {profile, loading}, createProfile, getCurrentPro
         instagram
     } = formData
 
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
+    const onChange = e => {
+        
+        setFormData({ ...formData, [e.target.name]: e.target.value })
+    }
 
     const onSubmit = e => {
         
@@ -127,8 +130,7 @@ const EditProfile = ({ profile: {profile, loading}, createProfile, getCurrentPro
                     />
                     <small className="form-text"
                     >If you want your latest repos and a Github link, include your
-            username</small
-                    >
+            username</small>
                 </div>
                 <div className="form-group">
                     <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={e => onChange(e)}></textarea>

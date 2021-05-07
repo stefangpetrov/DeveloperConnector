@@ -44,7 +44,8 @@ import {
         return {
           ...state,
           profile: null,
-          repos: []
+          repos: [],
+          loading: false
         };
       case GET_REPOS:
         return {
