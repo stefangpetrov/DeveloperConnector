@@ -143,7 +143,7 @@ router.get('/user/:user_id', async (req, res) => {
         if(!profile)
          return res.status(400).json({msg : 'There is no profile for this user'})
 
-        res.json(profile)
+        return res.json(profile)
 
     } catch(err) {
         console.error(err.message)
@@ -153,7 +153,7 @@ router.get('/user/:user_id', async (req, res) => {
 
         }
 
-        res.status(500).send('Server Error')
+        return res.status(500).send('Server Error')
     }
 })
 
@@ -340,7 +340,9 @@ router.delete('/education/:edu_id', auth, async(req, res) => {
 //@desc    Get user repos from github
 //@access  Public
 router.get('/github/:username', (req, res) => {
+    
     try {
+        console.log(req.params.username)
         const options = {
             uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5&
             sort=created:asc&client_id=${config.get('githubClientId')}&client_secret=
