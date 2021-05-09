@@ -1,5 +1,5 @@
 # DeveloperConnector
-First bigger MERN STACK project <br>
+First bigger MERN STACK project for a Udemy course: "MERN Stack Front to Back" <br>
 ----
 Website is live
 ----
